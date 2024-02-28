@@ -1,12 +1,19 @@
 function fibonacci(num) {
-if (num <= 0) {
-        return "Input should be a positive integer";
+    if (num <= 0) {
+        return "Invalid input";
     } else if (num === 1) {
         return 0;
     } else if (num === 2) {
         return 1;
     } else {
-        return fibonacci(num - 1) + fibonacci(num - 2);
+        let prev = 0;
+        let current = 1;
+        for (let i = 3; i <= num; i++) {
+            let next = prev + current;
+            prev = current;
+            current = next;
+        }
+        return current;
     }
 }
 
